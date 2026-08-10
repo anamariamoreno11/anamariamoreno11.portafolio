@@ -1,11 +1,17 @@
 export const PERSONAL_INFO = {
-    name: "Jhon Doe",
-    title: "Who stands behind the code?",
-    description: "Hi! I'm Jhon Doe, a Full Stack Developer with a passion for building digital experiences that marry form and function. With over 3 years of experience, I've specialized in creating robust architectures and fluid user interfaces.",
-    journey: "My journey started with a curiosity for how things work under the hood, leading me to master modern technologies like Astro, React, and Node.js.",
-    skills: ["🚀 Fast Learner", "💡 Problem Solver", "🤝 Team Player"],
-    heroDescription: "I'm a passionate developer with a strong background in web development and a deep love for creating innovative and user-friendly applications.",
-    resumeUrl: "/",
+    name: "Anamaria Moreno",
+    title: "Estudiante de Ingeniería de Sistemas",
+    description:
+        "Soy estudiante de Ingeniería de Sistemas y me interesa seguir desarrollando mis conocimientos en tecnología, programación y bases de datos.",
+    journey:
+        "Me gusta la música, cantar y ver películas. Este portafolio reúne mi proceso de aprendizaje y las evidencias desarrolladas durante la asignatura Bases de Datos 1.",
+    skills: [
+        "Ingeniería de Sistemas",
+        "Bases de Datos",
+        "Aprendizaje continuo"
+    ],
+    heroDescription:
+        "Estudiante de Ingeniería de Sistemas | Universidad El Bosque",
     socialLinks: [
         {
             href: "https://www.linkedin.com/",
