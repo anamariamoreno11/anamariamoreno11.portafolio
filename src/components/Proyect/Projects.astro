@@ -1,27 +1,39 @@
 ---
 const evidencias = [
   {
+    titulo: "Ejercicios en clase",
+    descripcion: "Actividades y ejercicios desarrollados durante las clases.",
+    icono: "▤",
+    enlace: "ejercicios",
+    boton: "Ver ejercicios",
+  },
+  {
     titulo: "Modelado",
-    descripcion:
-      "...",
+    descripcion: "...",
     icono: "◈",
+    enlace: null,
+    boton: "Próximamente",
   },
   {
     titulo: "Normalización",
-    descripcion:
-      "...",
+    descripcion: "...",
     icono: "✓",
+    enlace: null,
+    boton: "Próximamente",
   },
   {
     titulo: "SQL",
     descripcion: "...",
     icono: "⌘",
+    enlace: null,
+    boton: "Próximamente",
   },
   {
     titulo: "Proyecto",
-    descripcion:
-      "...",
+    descripcion: "...",
     icono: "◇",
+    enlace: null,
+    boton: "Próximamente",
   },
 ];
 ---
@@ -36,11 +48,11 @@ const evidencias = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
       {
         evidencias.map((evidencia) => (
           <div
-            class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 text-center transition-all duration-300 hover:-translate-y-2 hover:bg-white/15"
+            class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-7 text-center transition-all duration-300 hover:-translate-y-2 hover:bg-white/15"
             data-aos="fade-up"
           >
             <div class="w-20 h-20 mx-auto mb-6 rounded-full bg-primary flex items-center justify-center text-3xl text-white">
@@ -51,13 +63,22 @@ const evidencias = [
               {evidencia.titulo}
             </h3>
 
-            <p class="text-gray-300 leading-relaxed mb-8">
+            <p class="text-gray-300 leading-relaxed mb-8 min-h-[72px]">
               {evidencia.descripcion}
             </p>
 
-            <div class="border border-white/20 rounded-xl py-3 text-gray-400">
-              Próximamente
-            </div>
+            {evidencia.enlace ? (
+              <a
+                href={`${import.meta.env.BASE_URL}/${evidencia.enlace}`}
+                class="block border border-purple-400 rounded-xl py-3 text-purple-300 font-semibold transition-all duration-300 hover:bg-primary hover:text-white"
+              >
+                {evidencia.boton} →
+              </a>
+            ) : (
+              <div class="border border-white/20 rounded-xl py-3 text-gray-400">
+                {evidencia.boton}
+              </div>
+            )}
           </div>
         ))
       }

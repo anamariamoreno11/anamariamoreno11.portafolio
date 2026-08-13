@@ -1,0 +1,66 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const ejercicios = [
+  {
+    titulo: "Modelo Entidad-Relación: Hospital",
+    descripcion: "Ejercicio de Modelo Entidad-Relación desarrollado en clase.",
+    archivo: "MER.pdf",
+  },
+];
+---
+
+<Layout>
+  <section class="min-h-screen relative py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+      <!-- Encabezado -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Ejercicios en clase
+        </h1>
+
+        <p class="text-lg text-gray-300">
+          Actividades y ejercicios desarrollados durante las clases.
+        </p>
+      </div>
+
+      <!-- Ejercicios -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {
+          ejercicios.map((ejercicio) => (
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+              <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-2xl text-white mb-6">
+                PDF
+              </div>
+
+              <h2 class="text-2xl font-bold text-white mb-3">
+                {ejercicio.titulo}
+              </h2>
+
+              <p class="text-gray-300 mb-8">{ejercicio.descripcion}</p>
+
+              <a
+                href="/anamariamoreno11.portafolio/pdfs/ejercicios/MER.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-center border border-purple-400 rounded-xl py-3 text-purple-300 font-semibold transition-all duration-300 hover:bg-primary hover:text-white"
+              >
+                Ver PDF
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Regresar -->
+      <div class="text-center mt-16">
+        <a
+          href={`${import.meta.env.BASE_URL}#evidencias`}
+          class="text-purple-300 font-semibold hover:text-white transition-colors"
+        >
+          ← Volver a Evidencias
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
