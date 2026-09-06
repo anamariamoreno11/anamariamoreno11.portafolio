@@ -1,0 +1,67 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const evidencias = [
+  {
+    titulo: "Quiz 1",
+    descripcion: "Quiz sobre modelado de bases de datos.",
+    archivo: "quiz-1.pdf",
+  },
+  {
+    titulo: "Taller 1 - Reducción a Tablas",
+    descripcion: "Taller práctico de transformación del modelo a tablas.",
+    archivo: "taller-1-reduccion-tablas.pdf",
+  },
+];
+---
+
+<Layout>
+  <section class="min-h-screen relative py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Modelado</h1>
+
+        <p class="text-lg text-gray-300">
+          Actividades y evaluaciones relacionadas con el modelado de bases de
+          datos.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          evidencias.map((evidencia) => (
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+              <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-xl text-white mb-6">
+                PDF
+              </div>
+
+              <h2 class="text-2xl font-bold text-white mb-3">
+                {evidencia.titulo}
+              </h2>
+
+              <p class="text-gray-300 mb-8">{evidencia.descripcion}</p>
+
+              <a
+                href={`/anamariamoreno11.portafolio/pdfs/modelado/${evidencia.archivo}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block text-center border border-purple-400 rounded-xl py-3 text-purple-300 font-semibold transition-all duration-300 hover:bg-primary hover:text-white"
+              >
+                Ver PDF
+              </a>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="text-center mt-16">
+        <a
+          href="/anamariamoreno11.portafolio/#evidencias"
+          class="text-purple-300 font-semibold hover:text-white transition-colors"
+        >
+          ← Volver a Evidencias
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

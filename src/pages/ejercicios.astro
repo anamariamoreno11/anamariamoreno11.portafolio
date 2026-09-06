@@ -3,8 +3,32 @@ import Layout from "../layouts/Layout.astro";
 
 const ejercicios = [
   {
-    titulo: "Modelo Entidad-Relación: Hospital",
-    descripcion: "Ejercicio de Modelo Entidad-Relación desarrollado en clase.",
+    titulo: "Introducción a Bases de Datos",
+    descripcion: "Apuntes sobre los conceptos fundamentales de bases de datos.",
+    archivo: "introduccion-base-datos.pdf",
+  },
+  {
+    titulo: "Modelo Entidad-Relación",
+    descripcion:
+      "Apuntes sobre entidades, atributos, relaciones y cardinalidades.",
+    archivo: "modelo-entidad-relacion.pdf",
+  },
+  {
+    titulo: "Especialización y Generalización",
+    descripcion:
+      "Apuntes sobre especialización, generalización y el Modelo Entidad-Relación Extendido.",
+    archivo: "especializacion-generalizacion.pdf",
+  },
+  {
+    titulo: "Transformación MER a Modelo Relacional",
+    descripcion:
+      "Apuntes sobre la transformación del Modelo Entidad-Relación al Modelo Relacional.",
+    archivo: "transformacion-mer-modelo-relacional.pdf",
+  },
+  {
+    titulo: "Modelo Entidad-Relación",
+    descripcion:
+      "Ejercicio práctico desarrollado en clase sobre el Modelo Entidad-Relación.",
     archivo: "MER.pdf",
   },
 ];
@@ -16,16 +40,17 @@ const ejercicios = [
       <!-- Encabezado -->
       <div class="text-center mb-16">
         <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
-          Ejercicios en clase
+          Apuntes y ejercicios
         </h1>
 
         <p class="text-lg text-gray-300">
-          Actividades y ejercicios desarrollados durante las clases.
+          Apuntes realizados en clase y ejercicios prácticos para reforzar los
+          temas vistos.
         </p>
       </div>
 
       <!-- Ejercicios -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {
           ejercicios.map((ejercicio) => (
             <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">

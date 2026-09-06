@@ -1,18 +1,20 @@
 ---
 const evidencias = [
   {
-    titulo: "Ejercicios en clase",
-    descripcion: "Actividades y ejercicios desarrollados durante las clases.",
+    titulo: "Apuntes y ejercicios",
+    descripcion:
+      "AApuntes realizados en clase y ejercicios prácticos para reforzar los temas vistos.",
     icono: "▤",
     enlace: "ejercicios",
-    boton: "Ver ejercicios",
+    boton: "Ver apuntes y ejercicios",
   },
   {
     titulo: "Modelado",
-    descripcion: "...",
+    descripcion:
+      "Actividades y evaluaciones relacionadas con el modelado de bases de datos.",
     icono: "◈",
-    enlace: null,
-    boton: "Próximamente",
+    enlace: "modelado",
+    boton: "Ver evidencias",
   },
   {
     titulo: "Normalización",
@@ -48,7 +50,7 @@ const evidencias = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {
         evidencias.map((evidencia) => (
           <div
