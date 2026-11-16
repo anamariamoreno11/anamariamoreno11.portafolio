@@ -1,0 +1,505 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const base = import.meta.env.BASE_URL;
+
+const documentos = [
+  {
+    titulo: "Acta de Cierre",
+    archivo: "Acta de cierre.pdf",
+  },
+  {
+    titulo: "Acta de Constitución",
+    archivo: "Acta de constitución.pdf",
+  },
+  {
+    titulo: "Consultas de Álgebra Relacional",
+    archivo: "Consultas de algebra relacional.pdf",
+  },
+  {
+    titulo: "Cronograma",
+    archivo: "Cronograma.pdf",
+  },
+  {
+    titulo: "Diccionario de Datos",
+    archivo: "Diccionario de Datos.pdf",
+  },
+  {
+    titulo: "Análisis y Selección del Sistema Operativo",
+    archivo: "Documento de analisis de seleccion de sistema operativo.pdf",
+  },
+  {
+    titulo: "Análisis y Selección del RDBMS",
+    archivo:
+      "Documento de Analisis y Seleccion del RDBMS e Implementacion del Gestor.pdf",
+  },
+  {
+    titulo: "EDT - Estructura de Desglose del Trabajo",
+    archivo:
+      "Estructura de Desglose del Trabajo (EDT-WBS) y Diccionario de la EDT.pdf",
+  },
+  {
+    titulo: "EDT - Documento complementario",
+    archivo:
+      "Estructura de Desglose del Trabajo (EDT-WBS) y Diccionario de la EDT-1.pdf",
+  },
+  {
+    titulo: "Implementación de Máquina Virtual",
+    archivo: "Implementation VM.pdf",
+  },
+  {
+    titulo: "Propuesta del Proyecto",
+    archivo: "Propuesta Del Proyecto.pdf",
+  },
+];
+
+const modelos = [
+  {
+    titulo: "MER",
+    archivo: "MER - Savana-MER.drawio.png",
+  },
+  {
+    titulo: "MERE",
+    archivo: "MER - Savana-MERE.drawio.png",
+  },
+  {
+    titulo: "MER Pata de Gallina",
+    archivo: "Modelo MER Pata de gallina.png",
+  },
+  {
+    titulo: "Modelo Relacional",
+    archivo: "MR SAVANA.png",
+  },
+];
+
+const scripts = [
+  {
+    titulo: "01 - Creación de Objetos",
+    archivo: "01_creacion_objetos.sql",
+  },
+  {
+    titulo: "02 - Inserción de Registros",
+    archivo: "02_insercion_registros.sql",
+  },
+  {
+    titulo: "03 - Consultas de Validación",
+    archivo: "03_consultas_validacion.sql",
+  },
+  {
+    titulo: "04 - Consultas de Negocio",
+    archivo: "04_consultas_negocio.sql",
+  },
+  {
+    titulo: "05 - Backup y Restore",
+    archivo: "05_backup_restore.sql",
+  },
+  {
+    titulo: "06 - Drop y Clean",
+    archivo: "6_drop_clean.sql",
+  },
+  {
+    titulo: "Consultas SQL",
+    archivo: "consultas.sql",
+  },
+];
+---
+
+<Layout>
+  <section class="min-h-screen relative py-32 px-6">
+    <div class="max-w-7xl mx-auto">
+      <!-- TÍTULO -->
+      <div class="text-center mb-20">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+          Proyecto Final
+        </h1>
+
+        <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+          Documentación, modelos, scripts SQL y evidencias desarrolladas durante
+          el proyecto final de Bases de Datos.
+        </p>
+      </div>
+
+      <!-- DOCUMENTACIÓN -->
+      <div class="mb-20">
+        <h2 class="text-3xl font-bold text-white mb-3">Documentación</h2>
+
+        <p class="text-gray-300 mb-8">
+          Documentos desarrollados durante la planeación, diseño, implementación
+          y cierre del proyecto.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {
+            documentos.map((documento) => (
+              <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6">
+                <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-sm text-white mb-5">
+                  PDF
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-6">
+                  {documento.titulo}
+                </h3>
+
+                <button
+                  class="ver-pdf w-full border border-purple-400 rounded-xl py-3 text-purple-300 font-semibold hover:bg-primary hover:text-white transition-all"
+                  data-archivo={`${base}/pdfs/proyecto/documentos/${documento.archivo}`}
+                  data-titulo={documento.titulo}
+                >
+                  Ver documento
+                </button>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- MODELOS -->
+      <div class="mb-20">
+        <h2 class="text-3xl font-bold text-white mb-3">
+          Modelos de Base de Datos
+        </h2>
+
+        <p class="text-gray-300 mb-8">
+          Diagramas y modelos utilizados para representar la estructura de la
+          base de datos.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {
+            modelos.map((modelo) => (
+              <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6">
+                <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-sm text-white mb-5">
+                  IMG
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-6">
+                  {modelo.titulo}
+                </h3>
+
+                <button
+                  class="ver-imagen w-full border border-purple-400 rounded-xl py-3 text-purple-300 font-semibold hover:bg-primary hover:text-white transition-all"
+                  data-archivo={`${base}/pdfs/proyecto/modelos/${modelo.archivo}`}
+                  data-titulo={modelo.titulo}
+                >
+                  Ver modelo
+                </button>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- SCRIPTS -->
+      <div class="mb-20">
+        <h2 class="text-3xl font-bold text-white mb-3">Scripts SQL</h2>
+
+        <p class="text-gray-300 mb-8">
+          Scripts utilizados para crear, poblar, consultar, validar y
+          administrar la base de datos.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {
+            scripts.map((script) => (
+              <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6">
+                <div class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-sm text-white mb-5">
+                  SQL
+                </div>
+
+                <h3 class="text-xl font-bold text-white mb-6">
+                  {script.titulo}
+                </h3>
+
+                <button
+                  class="ver-script w-full border border-purple-400 rounded-xl py-3 text-purple-300 font-semibold hover:bg-primary hover:text-white transition-all"
+                  data-archivo={`${base}/pdfs/proyecto/scripts/${script.archivo}`}
+                  data-titulo={script.titulo}
+                >
+                  Ver script
+                </button>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- REPOSITORIOS -->
+      <div class="mb-20">
+        <h2 class="text-3xl font-bold text-white mb-3">Repositorios</h2>
+
+        <p class="text-gray-300 mb-8">
+          Enlaces de los repositorios relacionados con el proyecto.
+        </p>
+
+        <div
+          class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6 max-w-md"
+        >
+          <div
+            class="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-sm text-white mb-5"
+          >
+            TXT
+          </div>
+
+          <h3 class="text-xl font-bold text-white mb-6">
+            Links de los repositorios
+          </h3>
+
+          <button
+            id="ver-repositorios"
+            data-archivo={`${base}/pdfs/proyecto/documentos/Links de los repositorios.txt`}
+            class="w-full border border-purple-400 rounded-xl py-3 text-purple-300 font-semibold hover:bg-primary hover:text-white transition-all"
+          >
+            Ver repositorios
+          </button>
+        </div>
+      </div>
+
+      <!-- VIDEO -->
+      <div class="mb-20">
+        <h2 class="text-3xl font-bold text-white mb-3">Video del Proyecto</h2>
+
+        <p class="text-gray-300 mb-8">
+          Presentación audiovisual del proyecto final.
+        </p>
+
+        <div
+          class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6"
+        >
+          <video controls preload="metadata" class="w-full rounded-xl">
+            <source
+              src={`${base}/pdfs/proyecto/video/Video.mp4`}
+              type="video/mp4"
+            />
+
+            Tu navegador no soporta la reproducción de video.
+          </video>
+        </div>
+      </div>
+
+      <!-- VISOR -->
+      <div
+        id="visor"
+        class="hidden mt-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6"
+      >
+        <div class="flex justify-between items-center gap-4 mb-6">
+          <h2 id="titulo-visor" class="text-2xl font-bold text-white">
+            Evidencia
+          </h2>
+
+          <button
+            id="cerrar-visor"
+            class="px-5 py-2 border border-purple-400 rounded-xl text-purple-300 hover:bg-primary hover:text-white transition-all"
+          >
+            Cerrar
+          </button>
+        </div>
+
+        <!-- PDF -->
+        <iframe
+          id="pdf-frame"
+          src=""
+          class="hidden w-full rounded-xl bg-white"
+          style="height: 80vh;"
+          title="Visor PDF"
+        >
+        </iframe>
+
+        <!-- IMAGEN -->
+        <div id="imagen-container" class="hidden overflow-auto text-center">
+          <img
+            id="imagen-visor"
+            src=""
+            alt="Modelo"
+            class="max-w-full h-auto mx-auto rounded-xl bg-white"
+          />
+        </div>
+
+        <!-- SQL Y TXT -->
+        <div id="codigo-container" class="hidden">
+          <pre
+            id="codigo-visor"
+            class="bg-black/60 border border-white/10 rounded-xl p-6 text-left text-sm text-gray-200 overflow-auto whitespace-pre"
+            style="max-height: 80vh;">
+          </pre>
+        </div>
+      </div>
+
+      <!-- VOLVER -->
+      <div class="text-center mt-20">
+        <a
+          href={`${base}#evidencias`}
+          class="text-purple-300 font-semibold hover:text-white transition-colors"
+        >
+          ← Volver a Evidencias
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const visor = document.getElementById("visor");
+  const titulo = document.getElementById("titulo-visor");
+
+  const pdfFrame = document.getElementById("pdf-frame") as HTMLIFrameElement;
+
+  const imagenContainer = document.getElementById("imagen-container");
+
+  const imagen = document.getElementById("imagen-visor") as HTMLImageElement;
+
+  const codigoContainer = document.getElementById("codigo-container");
+
+  const codigo = document.getElementById("codigo-visor");
+
+  const cerrar = document.getElementById("cerrar-visor");
+
+  function limpiarVisor() {
+    pdfFrame.classList.add("hidden");
+    pdfFrame.src = "";
+
+    imagenContainer?.classList.add("hidden");
+    imagen.src = "";
+
+    codigoContainer?.classList.add("hidden");
+
+    if (codigo) {
+      codigo.textContent = "";
+    }
+  }
+
+  function mostrarVisor(nombre: string) {
+    if (titulo) {
+      titulo.textContent = nombre;
+    }
+
+    visor?.classList.remove("hidden");
+
+    visor?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+
+  // PDF
+  document.querySelectorAll(".ver-pdf").forEach((boton) => {
+    boton.addEventListener("click", () => {
+      limpiarVisor();
+
+      const archivo = boton.getAttribute("data-archivo");
+
+      const nombre = boton.getAttribute("data-titulo");
+
+      if (!archivo) return;
+
+      pdfFrame.src = archivo;
+      pdfFrame.classList.remove("hidden");
+
+      mostrarVisor(nombre || "Documento");
+    });
+  });
+
+  // IMÁGENES
+  document.querySelectorAll(".ver-imagen").forEach((boton) => {
+    boton.addEventListener("click", () => {
+      limpiarVisor();
+
+      const archivo = boton.getAttribute("data-archivo");
+
+      const nombre = boton.getAttribute("data-titulo");
+
+      if (!archivo) return;
+
+      imagen.src = archivo;
+      imagen.alt = nombre || "Modelo";
+
+      imagenContainer?.classList.remove("hidden");
+
+      mostrarVisor(nombre || "Modelo");
+    });
+  });
+
+  // SCRIPTS SQL
+  document.querySelectorAll(".ver-script").forEach((boton) => {
+    boton.addEventListener("click", async () => {
+      limpiarVisor();
+
+      const archivo = boton.getAttribute("data-archivo");
+
+      const nombre = boton.getAttribute("data-titulo");
+
+      if (!archivo) return;
+
+      codigoContainer?.classList.remove("hidden");
+
+      if (codigo) {
+        codigo.textContent = "Cargando script...";
+      }
+
+      mostrarVisor(nombre || "Script SQL");
+
+      try {
+        const respuesta = await fetch(archivo);
+
+        if (!respuesta.ok) {
+          throw new Error("No se pudo cargar el script.");
+        }
+
+        const contenido = await respuesta.text();
+
+        if (codigo) {
+          codigo.textContent = contenido;
+        }
+      } catch (error) {
+        if (codigo) {
+          codigo.textContent = "No fue posible cargar este script.";
+        }
+      }
+    });
+  });
+
+  // REPOSITORIOS
+  document
+    .getElementById("ver-repositorios")
+    ?.addEventListener("click", async (evento) => {
+      limpiarVisor();
+
+      const boton = evento.currentTarget as HTMLElement;
+
+      const archivo = boton.getAttribute("data-archivo");
+
+      if (!archivo) return;
+
+      codigoContainer?.classList.remove("hidden");
+
+      if (codigo) {
+        codigo.textContent = "Cargando...";
+      }
+
+      mostrarVisor("Links de los repositorios");
+
+      try {
+        const respuesta = await fetch(archivo);
+
+        if (!respuesta.ok) {
+          throw new Error("No se pudo cargar.");
+        }
+
+        const contenido = await respuesta.text();
+
+        if (codigo) {
+          codigo.textContent = contenido;
+        }
+      } catch (error) {
+        if (codigo) {
+          codigo.textContent =
+            "No fue posible cargar los links de los repositorios.";
+        }
+      }
+    });
+
+  // CERRAR
+  cerrar?.addEventListener("click", () => {
+    limpiarVisor();
+    visor?.classList.add("hidden");
+  });
+</script>

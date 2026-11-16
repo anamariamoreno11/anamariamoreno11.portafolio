@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const evidencias = [
+  {
+    titulo: "Ejercicios de SQL",
+    descripcion:
+      "Ejercicios prácticos de consultas SQL desarrollados durante la asignatura.",
+    archivo: "Ejercicios-SQL.pdf",
+  },
+];
+---
+
+<Layout>
+  <section class="min-h-screen relative py-32 px-6">
+    <div class="max-w-6xl mx-auto">
+      <!-- Encabezado -->
+      <div class="text-center mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">SQL</h1>
+
+        <p class="text-lg text-gray-300">
+          Ejercicios y actividades prácticas de consultas SQL.
+        </p>
+      </div>
+
+      <!-- Tarjetas -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {
+          evidencias.map((evidencia) => (
+            <div class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8">
+              <div class="w-16 h-16 rounded-full bg-primary flex items-center justify-center text-xl text-white mb-6">
+                PDF
+              </div>
+
+              <h2 class="text-2xl font-bold text-white mb-3">
+                {evidencia.titulo}
+              </h2>
+
+              <p class="text-gray-300 mb-8">{evidencia.descripcion}</p>
+
+              <button
+                class="ver-pdf w-full text-center border border-purple-400 rounded-xl py-3 text-purple-300 font-semibold transition-all duration-300 hover:bg-primary hover:text-white"
+                data-pdf={`/anamariamoreno11.portafolio/pdfs/sql/${evidencia.archivo}`}
+                data-titulo={evidencia.titulo}
+              >
+                Ver PDF
+              </button>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Visor -->
+      <div
+        id="visor-pdf"
+        class="hidden mt-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6"
+      >
+        <div class="flex justify-between items-center mb-6">
+          <h2 id="titulo-pdf" class="text-2xl font-bold text-white">
+            Documento
+          </h2>
+
+          <button
+            id="cerrar-pdf"
+            class="px-5 py-2 border border-purple-400 rounded-xl text-purple-300 hover:bg-primary hover:text-white transition-all"
+          >
+            Cerrar
+          </button>
+        </div>
+
+        <iframe
+          id="pdf-frame"
+          src=""
+          class="w-full rounded-xl bg-white"
+          style="height: 80vh;"
+          title="Visor de PDF"
+        >
+        </iframe>
+      </div>
+
+      <!-- Regresar -->
+      <div class="text-center mt-16">
+        <a
+          href="/anamariamoreno11.portafolio/#evidencias"
+          class="text-purple-300 font-semibold hover:text-white transition-colors"
+        >
+          ← Volver a Evidencias
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const botones = document.querySelectorAll(".ver-pdf");
+  const visor = document.getElementById("visor-pdf");
+  const frame = document.getElementById("pdf-frame") as HTMLIFrameElement;
+  const titulo = document.getElementById("titulo-pdf");
+  const cerrar = document.getElementById("cerrar-pdf");
+
+  botones.forEach((boton) => {
+    boton.addEventListener("click", () => {
+      const pdf = boton.getAttribute("data-pdf");
+      const nombre = boton.getAttribute("data-titulo");
+
+      if (pdf && frame && visor) {
+        frame.src = pdf;
+
+        if (titulo) {
+          titulo.textContent = nombre || "Documento";
+        }
+
+        visor.classList.remove("hidden");
+
+        visor.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    });
+  });
+
+  cerrar?.addEventListener("click", () => {
+    if (visor && frame) {
+      visor.classList.add("hidden");
+      frame.src = "";
+    }
+  });
+</script>
