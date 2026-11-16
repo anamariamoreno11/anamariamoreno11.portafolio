@@ -265,17 +265,22 @@ const scripts = [
         <div
           class="bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-6"
         >
-          <video controls preload="metadata" class="w-full rounded-xl">
-            <source
-              src={`${base}/pdfs/proyecto/video/Video.mp4`}
-              type="video/mp4"
-            />
-
-            Tu navegador no soporta la reproducción de video.
-          </video>
+          <div
+            class="relative w-full overflow-hidden rounded-xl"
+            style="padding-top: 56.25%;"
+          >
+            <iframe
+              class="absolute top-0 left-0 w-full h-full"
+              src="https://www.youtube.com/embed/TIBgvb_c5wg"
+              title="Video del Proyecto Final"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            >
+            </iframe>
+          </div>
         </div>
       </div>
-
       <!-- VISOR -->
       <div
         id="visor"
